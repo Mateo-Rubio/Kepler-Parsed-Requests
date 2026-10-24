@@ -1,0 +1,317 @@
+[
+  {
+    "task_id": "TASK_GEN_001",
+    "parsed": {
+      "day": "the day after tomorrow",
+      "hour": "overnight",
+      "sensor": "SAR",
+      "priority": "medium priority standard operational tasking routine monitoring monitoring"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_002",
+    "parsed": {
+      "day": "in four days",
+      "hour": "morning",
+      "sensor": "SAR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_003",
+    "parsed": {
+      "day": "tomorrow",
+      "hour": "evening",
+      "sensor": "SAR",
+      "priority": "medium priority standard operational tasking routine monitoring monitoring"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_004",
+    "parsed": {
+      "day": "today",
+      "hour": "afternoon",
+      "sensor": "TIR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_005",
+    "parsed": {
+      "day": "tomorrow",
+      "hour": "morning",
+      "sensor": "TIR",
+      "priority": "medium priority standard operational tasking routine monitoring monitoring"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_006",
+    "parsed": {
+      "day": "in four days",
+      "hour": "overnight",
+      "sensor": "VISUAL",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_007",
+    "parsed": {
+      "day": "today",
+      "hour": "overnight",
+      "sensor": "TIR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": false,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_008",
+    "parsed": {
+      "day": "in three days",
+      "hour": "evening",
+      "sensor": "TIR",
+      "priority": "high priority absolute institutional priority binding contract requirement urgent execution mandatory"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": false,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": false,
+      "hour_match": false,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_009",
+    "parsed": {
+      "day": "in four days",
+      "hour": "morning",
+      "sensor": "SAR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": false,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": false
+    }
+  },
+  {
+    "task_id": "TASK_GEN_010",
+    "parsed": {
+      "day": "in three days",
+      "hour": "mid-day",
+      "sensor": "VISUAL",
+      "priority": "high priority absolute institutional priority binding contract requirement urgent execution mandatory"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_011",
+    "parsed": {
+      "day": "today",
+      "hour": "evening",
+      "sensor": "NIR",
+      "priority": "high priority absolute institutional priority binding contract requirement urgent execution mandatory"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_012",
+    "parsed": {
+      "day": "today",
+      "hour": "overnight",
+      "sensor": "NIR",
+      "priority": "high priority absolute institutional priority binding contract requirement urgent execution mandatory"
+    },
+    "parser_match": {
+      "day_match": false,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_013",
+    "parsed": {
+      "day": "today",
+      "hour": "evening",
+      "sensor": "NIR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_014",
+    "parsed": {
+      "day": "the day after tomorrow",
+      "hour": "morning",
+      "sensor": "NIR",
+      "priority": "low priority background survey filler task flexible schedule"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    }
+  },
+  {
+    "task_id": "TASK_GEN_015",
+    "parsed": {
+      "day": "today",
+      "hour": "afternoon",
+      "sensor": "TIR",
+      "priority": "high priority absolute institutional priority binding contract requirement urgent execution mandatory"
+    },
+    "parser_match": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": true,
+      "priority_match": true
+    },
+    "validation": {
+      "day_match": true,
+      "hour_match": true,
+      "sensor_match": false,
+      "priority_match": true
+    }
+  }
+]
