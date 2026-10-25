@@ -1,0 +1,31 @@
+{
+  "seed": 2026,
+  "reps": [
+    "rep_1",
+    "rep_2"
+  ],
+  "E": 0.05,
+  "categorias": [
+    "day",
+    "hour"
+  ],
+  "parsers": [
+    "gemma2:27b",
+    "llama3.1:8b",
+    "phi3.5:3.8b",
+    "phi4:14b",
+    "qwen2:7b"
+  ],
+  "n": 9,
+  "escenarios": [
+    8,
+    21,
+    7,
+    29,
+    34,
+    31,
+    20,
+    28,
+    18
+  ]
+}
