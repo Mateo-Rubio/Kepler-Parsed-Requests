@@ -29,6 +29,18 @@ from evaluacion_comun import (
     sufijo_unidad,
 )
 
+# Tamaños de letra (modificables).
+TAMANO_NUMEROS = 12  # conteo dentro de cada celda
+TAMANO_ETIQUETAS = 12  # etiquetas de los ejes x e y
+TAMANO_TITULO_PANEL = 14  # nombre del extractor sobre cada matriz
+
+# Etiquetas abreviadas solo para mostrar en las figuras (los datos no cambian).
+ETIQUETA_VISIBLE = {"the day after tomorrow": "after tomorrow"}
+
+
+def visibles(etiquetas) -> list[str]:
+    return [ETIQUETA_VISIBLE.get(e, e) for e in etiquetas]
+
 
 def porcentajes_por_fila(m: MatrizConfusion) -> list[list[float]]:
     """Proporción de cada celda respecto al total de su fila (0 si la fila está vacía)."""
@@ -48,54 +60,43 @@ def dibujar_panel(
 ):
     porcentajes = porcentajes_por_fila(m)
     mapa = mapa_categoria(categoria)
-    imagen = ax.imshow(porcentajes, cmap=mapa, vmin=0, vmax=1, aspect="auto")
+    ax.imshow(porcentajes, cmap=mapa, vmin=0, vmax=1, aspect="auto")
 
     for i, fila in enumerate(m.conteos):
         for j, conteo in enumerate(fila):
             ax.text(
-                j, i, str(conteo), ha="center", va="center", fontsize=8,
+                j, i, str(conteo), ha="center", va="center", fontsize=TAMANO_NUMEROS,
                 color=color_texto_sobre(mapa(porcentajes[i][j])),
             )
 
     rotacion = 35 if categoria in ("day", "hour") else 0
     ax.set_xticks(
-        range(len(m.etiquetas_predichas)), m.etiquetas_predichas if mostrar_columnas else [],
+        range(len(m.etiquetas_predichas)), visibles(m.etiquetas_predichas) if mostrar_columnas else [],
         rotation=rotacion,
-        ha="right" if rotacion else "center", rotation_mode="anchor", fontsize=8,
+        ha="right" if rotacion else "center", rotation_mode="anchor", fontsize=TAMANO_ETIQUETAS,
     )
-    ax.set_yticks(range(len(m.etiquetas_humanas)), m.etiquetas_humanas if mostrar_filas else [],
-                  fontsize=8)
-    ax.set_title(extractor, fontsize=10, fontweight="bold")
-    if mostrar_filas:
-        ax.set_ylabel("Lectura humana", fontsize=8)
+    ax.set_yticks(range(len(m.etiquetas_humanas)), visibles(m.etiquetas_humanas) if mostrar_filas else [],
+                  fontsize=TAMANO_ETIQUETAS)
+    ax.set_title(extractor, fontsize=TAMANO_TITULO_PANEL, fontweight="bold")
     for spine in ax.spines.values():
         spine.set_visible(False)
     ax.tick_params(length=0)
-    return imagen
 
 
-def guardar_categoria(plt, categoria: str, matrices: dict[str, MatrizConfusion], n: int, sufijo: str):
+def guardar_categoria(plt, categoria: str, matrices: dict[str, MatrizConfusion], sufijo: str):
     ancho = 15 if categoria == "day" else 13
     fig, ejes = plt.subplots(2, 3, figsize=(ancho, 8.5))
-    imagen = None
     for k, (ax, extractor) in enumerate(zip(ejes.flat, EXTRACTORES)):
-        imagen = dibujar_panel(
+        dibujar_panel(
             ax, extractor, categoria, matrices[extractor],
             mostrar_filas=k % 3 == 0,  # columna izquierda
             mostrar_columnas=k >= 3,  # fila de abajo
         )
 
-    fig.suptitle(f"Matrices de confusión · {NOMBRE_CATEGORIA[categoria]} (n = {n})",
-                 fontweight="bold")
-    fig.tight_layout(rect=(0, 0, 0.90, 0.96))
-    eje_barra = fig.add_axes((0.915, 0.15, 0.012, 0.7))
-    barra = fig.colorbar(imagen, cax=eje_barra)
-    barra.set_label("Porcentaje de la fila", fontsize=9)
-    barra.set_ticks([0, 0.25, 0.5, 0.75, 1], labels=["0 %", "25 %", "50 %", "75 %", "100 %"])
-    barra.ax.tick_params(labelsize=8)
+    fig.tight_layout()
 
-    ruta = DIR_FIGURAS / f"confusion_{categoria}{sufijo}.png"
-    fig.savefig(ruta, dpi=200)
+    ruta = DIR_FIGURAS / f"confusion_{categoria}{sufijo}.pdf"
+    fig.savefig(ruta)
     plt.close(fig)
     return ruta
 
@@ -113,7 +114,7 @@ def main() -> None:
         matrices = {e: matriz_confusion(registros, e, categoria) for e in EXTRACTORES}
         for extractor, m in matrices.items():
             imprimir_matriz(extractor, categoria, m)
-        rutas.append(guardar_categoria(plt, categoria, matrices, len(registros), sufijo))
+        rutas.append(guardar_categoria(plt, categoria, matrices, sufijo))
 
     print("\nFiguras guardadas en:")
     for ruta in rutas:
